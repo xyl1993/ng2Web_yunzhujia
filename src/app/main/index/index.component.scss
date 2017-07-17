@@ -1,0 +1,74 @@
+@import '../../../assets/global/global';
+@import "../../../assets/mixin/mixin";
+.index-nav {
+    margin-bottom: 25px;
+    width: 100%;
+    height: 62px;
+    border-bottom: 1px solid $baseColor;
+    line-height: 70px;
+    li {
+        float: left;
+        width: 14.2857143%;
+        color: #705330;
+        text-align: center;
+        letter-spacing: 2px;
+        font-weight: 700;
+        font-size: 18px;
+        &:hover,
+        &:active,
+        &:focus {
+            color: $baseColor;
+            cursor: pointer;
+        }
+    }
+    li.active {
+        color: $baseColor;
+    }
+}
+
+.indexres-list-ul {
+    li {
+        position: relative;
+        padding: 20px 0;
+        height: 137px;
+        img {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 150px;
+            height: 98px;
+        }
+    }
+    .child-list {
+        padding-left: 168px;
+        width: 100%;
+        h3 {
+            color: #3b3b3b;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .content {
+            overflow: hidden;
+            margin-top: 10px;
+            margin-bottom: 6px;
+            max-height: 40px;
+            height: 40px;
+            color: #999;
+            line-height: 20px;
+
+            @include text-line-clamp(2);//只显示指定行数,最后一行超出部分显示省略号.ie不支持
+        }
+        i {
+            color: #705330;
+            font-weight: 700;
+            font-style: normal;
+        }
+        time {
+            float: right;
+            color: $baseColor;
+        }
+    }
+    li:not(:last-of-type) {
+        border-bottom: 1px solid #ccc;
+    }
+}

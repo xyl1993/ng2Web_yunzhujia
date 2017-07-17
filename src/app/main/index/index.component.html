@@ -1,0 +1,31 @@
+<!--项目首页-->
+<div class="app-cointer wrapper">
+    <div class="index-cointer-main">
+        <div class="index-nav">
+            <li *ngFor="let list of categoryList" (click)="categoryClick(list.id)">
+                <span>{{ list.name }}</span>
+            </li>
+        </div>
+        <div class="clear"></div>
+        <ul class="indexres-list-ul">
+            <li *ngFor="let list of infoList">
+                <div class="child-list">
+                    <h3 class="text-overflow">
+                        {{list.article.title}}
+                    </h3>
+                    <div class="content">
+                       {{list.article.contentText}}
+                    </div>
+                    <i>{{list.infoCategory.name}}</i>
+                    <time>{{list.article.publishTimeStr}}</time>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="common-pagination text-center">
+        <div id="pagination" class="pagination tres">
+           
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

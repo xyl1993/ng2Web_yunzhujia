@@ -1,0 +1,76 @@
+@import "../../../assets/global/global";
+
+.footer-main {
+  background-color: #fff;
+}
+
+.footer-main-dyn {
+  border-top: 2px solid $baseColor;
+  .footer-dyn {
+    margin: 0 auto;
+    padding-top: 25px;
+    width: $baseWidth;
+    height: inherit;
+  }
+}
+
+.footer-address {
+  float: left;
+  margin-right: -314px;
+  width: 314px;
+  p{
+    margin-bottom: 3px;
+  }
+  >p{
+    margin-bottom: 20px;
+  }
+  .footer-adress-font{
+    color:#999999;
+    font-size: 14px;
+  }
+}
+.other-dyn-right{
+  >p{
+    margin-bottom: 8px;
+  }
+  .link-img {
+    position: relative;
+    z-index: 4;
+    float: left;
+    padding-top: 5px;
+    padding-right: 10px;
+  }
+}
+.other-dyn-right>p,.footer-address>p{
+  color:#705330;
+  font-size: 16px;
+}
+.footer-dyn-other {
+  float: left;
+  padding-left: 330px;
+  .other-dyn-right {
+    float: right;
+    margin-left: -278px;
+    width: 278px;
+  }
+  .other-dyn-left {
+    float: right;
+    padding-right: 340px;
+    width: 100%;
+    color:#705330;
+    text-align: center;
+    font-weight: 700;
+    font-size:12px;
+    line-height: 23px;
+  }
+
+}
+
+.footer-bottom {
+  height: 30px;
+  background-color: $baseColor;
+  color: #fff;
+  text-align: center;
+  font-size:12px;
+  line-height: 30px;
+}
