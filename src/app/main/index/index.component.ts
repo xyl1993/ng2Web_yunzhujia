@@ -23,7 +23,7 @@ export class IndexComponent implements OnInit {
 
     private pageSize: number = config.pageSize;
     private currentPage: number = 1;
-    private categoryData :object= {     //目录类型对象
+    public categoryData :object= {     //目录类型对象
         infoCategoryId:0
     };    
 
@@ -78,6 +78,14 @@ export class IndexComponent implements OnInit {
                 this.getInfoList(page);
             }
         });
+    }
+
+    public spliceThree(index:number,type:number){
+        if(type == 1){
+            return index<3
+        }else{
+            return index>2
+        }
     }
 
 }

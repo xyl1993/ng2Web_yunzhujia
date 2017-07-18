@@ -2,13 +2,35 @@
 <div class="app-cointer wrapper">
     <div class="index-cointer-main">
         <div class="index-nav">
-            <li *ngFor="let list of categoryList" (click)="categoryClick(list.id)">
+            <li [class.active]="list.id == categoryData.infoCategoryId" *ngFor="let list of categoryList" (click)="categoryClick(list.id)" >
                 <span>{{ list.name }}</span>
             </li>
         </div>
         <div class="clear"></div>
+        <!--热门资讯模版-->
+        <div class="hot-reserous-dyn">
+            <div class="slider-wrapper theme-default binna-dyn">
+                <div id="slider" class="nivoSlider">
+                    <a>
+                      
+                    </a>
+                </div>
+            </div>
+            <div class="hot-reserous-list">
+                <div class="child-list animated dn-lightspeed" *ngFor="let list of categoryList;let i = index" *ngIf="true">
+                    <h3 class="text-overflow">
+                    </h3>
+                    <div class="content">
+                        
+                    </div>
+                    <i></i>
+                    <time></time>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
         <ul class="indexres-list-ul">
-            <li *ngFor="let list of infoList">
+            <li *ngFor="let list of infoList;let i = index" *ngIf="true">
                 <div class="child-list">
                     <h3 class="text-overflow">
                         {{list.article.title}}
