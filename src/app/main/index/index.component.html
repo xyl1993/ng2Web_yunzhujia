@@ -11,37 +11,43 @@
         <div class="hot-reserous-dyn">
             <div class="slider-wrapper theme-default binna-dyn">
                 <div id="slider" class="nivoSlider">
-                    <a>
-                      
+                    <a *ngFor="let list of (hotList | nivoSliderPipe:list)">
+                       <img src="{{list.article.cover}}"  [attr.data-thumb]="list.article.cover" alt="" title="{{list.article.title}}" >
                     </a>
                 </div>
             </div>
             <div class="hot-reserous-list">
-                <div class="child-list animated dn-lightspeed" *ngFor="let list of categoryList;let i = index" *ngIf="true">
-                    <h3 class="text-overflow">
-                    </h3>
-                    <div class="content">
-                        
+                <div class="list_div" *ngFor="let list of infoList;let i = index;">
+                    <div class="child-list animated dn-lightspeed" *ngIf="i<3">
+                        <h3 class="text-overflow">
+                            {{list.article.title}}
+                        </h3>
+                        <div class="content">
+                            {{list.article.contentText}}
+                        </div>
+                        <i>{{list.infoCategory.name}}</i>
+                        <time>{{list.article.publishTimeStr}}</time>
                     </div>
-                    <i></i>
-                    <time></time>
                 </div>
             </div>
             <div class="clear"></div>
         </div>
         <ul class="indexres-list-ul">
-            <li *ngFor="let list of infoList;let i = index" *ngIf="true">
-                <div class="child-list">
-                    <h3 class="text-overflow">
-                        {{list.article.title}}
-                    </h3>
-                    <div class="content">
-                       {{list.article.contentText}}
+            <div class="list_div" *ngFor="let list of infoList;let i = index;">
+                <li *ngIf = "i>2" >
+                    <img src="{{list.article.cover}}">
+                    <div class="child-list">
+                        <h3 class="text-overflow">
+                            {{list.article.title}}
+                        </h3>
+                        <div class="content">
+                        {{list.article.contentText}}
+                        </div>
+                        <i>{{list.infoCategory.name}}</i>
+                        <time>{{list.article.publishTimeStr}}</time>
                     </div>
-                    <i>{{list.infoCategory.name}}</i>
-                    <time>{{list.article.publishTimeStr}}</time>
-                </div>
-            </li>
+                </li>
+            </div>
         </ul>
     </div>
     <div class="common-pagination text-center">

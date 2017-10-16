@@ -28,6 +28,11 @@ $bannerHeight:365px;
 }
 
 .indexres-list-ul {
+    .list_div:not(:last-of-type){
+        li{
+            border-bottom: 1px solid #ccc;
+        }
+    }
     li {
         position: relative;
         padding: 20px 0;
@@ -68,9 +73,6 @@ $bannerHeight:365px;
             float: right;
             color: $baseColor;
         }
-    }
-    li:not(:last-of-type) {
-        border-bottom: 1px solid #ccc;
     }
 }
 .hot-reserous-dyn{

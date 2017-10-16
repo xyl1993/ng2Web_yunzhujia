@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NgIf } from '@angular/common';
 declare var jQuery:any;  //定义jquery
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -9,10 +10,19 @@ import { IndexService } from './index.service';
 import { Category } from './model/category.model';
 import { Info } from './model/info.model';
 import { config } from '../../global/config';
+
+
 @Component({
   selector: 'main-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss'],
+  styleUrls: [
+              './index.component.scss',
+              '../../../assets/jsPlug/nivo-slider/themes/default/default.css',
+              '../../../assets/jsPlug/nivo-slider/themes/light/light.css',
+              '../../../assets/jsPlug/nivo-slider/themes/dark/dark.css',
+              '../../../assets/jsPlug/nivo-slider/themes/bar/bar.css',
+              '../../../assets/jsPlug/nivo-slider/nivo-slider.css',
+             ],
   providers: [IndexService],
   animations: []
 })
@@ -20,6 +30,8 @@ export class IndexComponent implements OnInit {
 
     public categoryList:Array<Category>;
     public infoList:Array<Info>;
+    public hotList:Array<Object>;
+    
 
     private pageSize: number = config.pageSize;
     private currentPage: number = 1;
@@ -34,6 +46,7 @@ export class IndexComponent implements OnInit {
   	ngOnInit() {
         this.getInfoCategory();
         this.getInfoList(1);
+        this.getHot();
   	}
     public categoryClick(id:number):void{
         this.categoryData = {
@@ -81,11 +94,14 @@ export class IndexComponent implements OnInit {
     }
 
     public spliceThree(index:number,type:number){
-        if(type == 1){
-            return index<3
-        }else{
-            return index>2
-        }
+         return this.infoList.filter((item, index) => index > 2 )
     }
 
+    public getHot(){
+        this.indexService.getHot().then((res)=>{
+            if(res.code === 0){
+               this.hotList = res.data.data;
+            }
+        });
+    }
 }

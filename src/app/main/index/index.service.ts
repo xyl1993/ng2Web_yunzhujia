@@ -12,7 +12,7 @@ export class IndexService {
 
   constructor(private http: Http) { }
 
-  public getInfoList(currentPage:Number,pageSize:Number,data:Object) {
+    public getInfoList(currentPage:Number,pageSize:Number,data:Object) {
         return this.http.post(config.base_api_host+'/infos/infoList/paging/' + currentPage + '/' + pageSize,data,{
             headers: this.headers
         })
@@ -20,8 +20,15 @@ export class IndexService {
         .then(response => response.json())
         .catch((error:any) => Observable.throw(error || 'Server error'));
     }
-  public getInfoCategory() {
+    public getInfoCategory() {
         return this.http.post(config.base_api_host+'/infos/infoCategory/list',{
+            headers: this.headers
+        })
+        .toPromise()
+        .then(response => response.json())
+    }
+    public getHot() {
+        return this.http.post(config.base_api_host+'/infos/hot',{
             headers: this.headers
         })
         .toPromise()

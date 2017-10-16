@@ -6,7 +6,7 @@ import { IndexComponent } from './index/index.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {mainRoutes} from './main.routes';
-
+import { NivoSliderPipe } from './index/NivoSliderPipe.pipe';
 @NgModule({
     imports: [
         CommonModule,
@@ -17,7 +17,8 @@ import {mainRoutes} from './main.routes';
         MainComponent,
         IndexComponent,
         FooterComponent,
-        NavbarComponent
+        NavbarComponent,
+        NivoSliderPipe
     ],
     providers: [],
 })

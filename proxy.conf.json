@@ -1,6 +1,6 @@
 {
   "/platform": {
-    "target": "http://192.168.60.200:8080/",
+    "target": "http://115.159.93.52/",
     "secure": false
   }
 }
